@@ -6,6 +6,7 @@ print('-> Importing the libraries')
 import tensorflow as tf
 from keras.preprocessing.image import ImageDataGenerator
 import numpy as np
+from keras.utils import load_img
 from keras.preprocessing import image
 
 print('-> DONE')
@@ -128,7 +129,7 @@ cnn.fit(
 )
 
 ## Part 5 : Making a prediction
-test_image = image.load_img(
+test_image = load_img(
     'data/single_prediction/cat_or_dog_1.jpg',
     target_size=(64, 64)
 )
