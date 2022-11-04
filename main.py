@@ -2,8 +2,12 @@
 
 ## Step 1 : Importing the libraries
 print('-> Importing the libraries')
+
 import tensorflow as tf
 from keras.preprocessing.image import ImageDataGenerator
+import numpy as np
+from keras.preprocessing import image
+
 print('-> DONE')
 
 ## Step 2 : Data Preprocessing
@@ -42,9 +46,12 @@ test_set = test_datagen.flow_from_directory(
     batch_size=32,
     class_mode='binary'
 )
+
 print('-> DONE')
+
 ## Step 3 : Building the CNN
 print('-> Building the CNN')
+
 ### Initialising the CNN
 cnn = tf.keras.models.Sequential()
 
@@ -104,6 +111,7 @@ cnn.add(
     )
 )
 print('-> DONE')
+
 ## Step 4 : Training the CNN
 ### Compiling the CNN
 cnn.compile(
@@ -119,3 +127,21 @@ cnn.fit(
     epochs=25
 )
 
+## Part 5 : Making a prediction
+test_image = image.load_img(
+    'data/single_prediction/cat_or_dog_1.jpg',
+    target_size=(64, 64)
+)
+test_image = image.img_to_array(test_image)
+test_image = np.expand_dims(
+    test_image,
+    axis=0
+)
+
+result = cnn.predict(test_image)
+training_set.class_indices
+if result[0][0] == 1:
+    prediction = 'dog'
+else :
+    prediction = 'cat'
+print(prediction)
