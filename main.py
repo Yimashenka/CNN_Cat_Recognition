@@ -84,7 +84,7 @@ cnn.add(
 
 ### 4 - Full Connection :
 cnn.add(
-    tf.keras.Dense(
+    tf.keras.layers.Dense(
         units=128,
         activation='relu'
     )
@@ -92,7 +92,7 @@ cnn.add(
 
 ### 5 - Output layer :
 cnn.add(
-    tf.keras.Dense(
+    tf.keras.Layers.Dense(
         units=1,
         activation='sigmoid'
     )
