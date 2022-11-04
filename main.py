@@ -97,3 +97,19 @@ cnn.add(
         activation='sigmoid'
     )
 )
+
+## Step 4 : Training the CNN
+### Compiling the CNN
+cnn.compile(
+    optimizer='adam',
+    loss='binary_crossentropy',
+    metrics=['accuracy']
+)
+
+### Training the CNN
+cnn.fit(
+    x=training_set,
+    validation_data=test_set,
+    epochs=25
+)
+
