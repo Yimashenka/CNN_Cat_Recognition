@@ -1,8 +1,8 @@
-# CNN_Cat_Recognition
+# CNN_Cat_And_Dog_Recognition
 A Convolutional Neural Network to recognize cat picture.
 
 ## What ?
-A short project to say if yes or no, it is a cat on a picture.
+A short project to say if yes or no, it is a cat or a dog on a picture.
 
 ## Why ?
 To train myself to use this kind of neural network.
