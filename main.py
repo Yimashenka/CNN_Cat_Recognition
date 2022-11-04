@@ -1,11 +1,15 @@
 #Convolutional Neural Network
 
 ## Step 1 : Importing the libraries
+print('-> Importing the libraries')
 import tensorflow as tf
 from keras.preprocessing.image import ImageDataGenerator
+print('-> DONE')
 
 ## Step 2 : Data Preprocessing
 ### Preprocessing the training set
+print('-> Preprocessing the training set')
+
 '''
 In order to prevent the overfitting, I will apply some transformations to the
 pictures in the training set (rotation, zoom, flips, etc). This is called ima-
@@ -26,8 +30,9 @@ training_set = train_datagen.flow_from_directory(
     batch_size=32,
     class_mode='binary'
 )
-
+print('-> DONE')
 ### Preprocessing the test set
+print('-> Preprocessing the test set')
 test_datagen = ImageDataGenerator(
     rescale=1./255
 )
@@ -37,8 +42,9 @@ test_set = test_datagen.flow_from_directory(
     batch_size=32,
     class_mode='binary'
 )
-
+print('-> DONE')
 ## Step 3 : Building the CNN
+print('-> Building the CNN')
 ### Initialising the CNN
 cnn = tf.keras.models.Sequential()
 
@@ -92,12 +98,12 @@ cnn.add(
 
 ### 5 - Output layer :
 cnn.add(
-    tf.keras.Layers.Dense(
+    tf.keras.layers.Dense(
         units=1,
         activation='sigmoid'
     )
 )
-
+print('-> DONE')
 ## Step 4 : Training the CNN
 ### Compiling the CNN
 cnn.compile(
