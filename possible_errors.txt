@@ -1,0 +1,3 @@
+"ImportError: Could not import PIL.Image. The use of `load_img` requires PIL."
+-> Install Pillow
+pip install Pillow
